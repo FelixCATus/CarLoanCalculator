@@ -10,4 +10,6 @@
     <string name="carLoan">Car Loan (RM):</string>
     <string name="interest">Interest (RM):</string>
     <string name="monthlyRepayment">Monthly Repayment (RM):</string>
+    <string name="year">Year</string>
+    <string name="percentage_symbol">%</string>
 </resources>

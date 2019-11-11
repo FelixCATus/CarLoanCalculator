@@ -67,7 +67,8 @@
         android:hint="@string/rm"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/carPriceTextView"
-        app:layout_constraintTop_toBottomOf="@+id/carPriceTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/carPriceTextView"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editDownPaymentAmount"
@@ -78,7 +79,8 @@
         android:hint="@string/rm"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/downPaymentAmountTextView"
-        app:layout_constraintTop_toBottomOf="@+id/downPaymentAmountTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/downPaymentAmountTextView"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editLoanPeriod"
@@ -86,9 +88,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:ems="5"
+        android:hint="@string/year"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="@+id/loanPeriodTextView"
-        app:layout_constraintTop_toBottomOf="@+id/loanPeriodTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/loanPeriodTextView"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editInterestRate"
@@ -96,9 +100,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:ems="5"
+        android:hint="@string/percentage_symbol"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/interestRateTextView"
-        app:layout_constraintTop_toBottomOf="@+id/interestRateTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/interestRateTextView"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btnCalculate"

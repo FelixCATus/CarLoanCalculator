@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import java.math.RoundingMode
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,12 +26,14 @@ class MainActivity : AppCompatActivity() {
         val interest: TextView = findViewById(R.id.interest)
         val monthlyPayment: TextView = findViewById(R.id.monthlyRepayment)
 
-        carLoan.text = (carPrice.text.toString().toDouble() - downPayment.text.toString().toDouble()).toString()
-        interest.text = (carLoan.text.toString().toDouble() * interestRate.text.toString().toDouble() * loanPeriod.text.toString().toInt()).toString()
-        monthlyPayment.text = ((carLoan.text.toString().toDouble() + interest.text.toString().toDouble()) / loanPeriod.text.toString().toInt() / 12).toString()
+        if(carPrice.text.isNotEmpty() || downPayment.text.isNotEmpty() || loanPeriod.text.isNotEmpty() || interestRate.text.isNotEmpty()){
+            carLoan.text = (carPrice.text.toString().toDouble() - downPayment.text.toString().toDouble()).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
+            interest.text = (carLoan.text.toString().toDouble() * (interestRate.text.toString().toDouble() / 100) * loanPeriod.text.toString().toInt()).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
+            monthlyPayment.text = ((carLoan.text.toString().toDouble() + interest.text.toString().toDouble()) / loanPeriod.text.toString().toInt() / 12).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
 
-        carLoan.visibility = View.VISIBLE
-        interest.visibility = View.VISIBLE
-        monthlyPayment.visibility = View.VISIBLE
+            carLoan.visibility = View.VISIBLE
+            interest.visibility = View.VISIBLE
+            monthlyPayment.visibility = View.VISIBLE
+        }
     }
 }
